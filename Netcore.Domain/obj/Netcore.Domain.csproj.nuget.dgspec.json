@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\examenCruiz\\examenCruiz\\Netcore.Domain\\Netcore.Domain.csproj": {}
+    "C:\\examenCruiz\\PRAYAGA\\PRAYAGA\\Netcore.Domain\\Netcore.Domain.csproj": {}
   },
   "projects": {
-    "C:\\examenCruiz\\examenCruiz\\Netcore.Domain\\Netcore.Domain.csproj": {
+    "C:\\examenCruiz\\PRAYAGA\\PRAYAGA\\Netcore.Domain\\Netcore.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\examenCruiz\\examenCruiz\\Netcore.Domain\\Netcore.Domain.csproj",
+        "projectUniqueName": "C:\\examenCruiz\\PRAYAGA\\PRAYAGA\\Netcore.Domain\\Netcore.Domain.csproj",
         "projectName": "Netcore.Domain",
-        "projectPath": "C:\\examenCruiz\\examenCruiz\\Netcore.Domain\\Netcore.Domain.csproj",
+        "projectPath": "C:\\examenCruiz\\PRAYAGA\\PRAYAGA\\Netcore.Domain\\Netcore.Domain.csproj",
         "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
-        "outputPath": "C:\\examenCruiz\\examenCruiz\\Netcore.Domain\\obj\\",
+        "outputPath": "C:\\examenCruiz\\PRAYAGA\\PRAYAGA\\Netcore.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

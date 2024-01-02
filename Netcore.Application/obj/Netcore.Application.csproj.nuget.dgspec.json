@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\examenCruiz\\examenCruiz\\Netcore.Application\\Netcore.Application.csproj": {}
+    "C:\\examenCruiz\\PRAYAGA\\PRAYAGA\\Netcore.Application\\Netcore.Application.csproj": {}
   },
   "projects": {
-    "C:\\examenCruiz\\examenCruiz\\Netcore.Application\\Netcore.Application.csproj": {
+    "C:\\examenCruiz\\PRAYAGA\\PRAYAGA\\Netcore.Application\\Netcore.Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\examenCruiz\\examenCruiz\\Netcore.Application\\Netcore.Application.csproj",
+        "projectUniqueName": "C:\\examenCruiz\\PRAYAGA\\PRAYAGA\\Netcore.Application\\Netcore.Application.csproj",
         "projectName": "Netcore.Application",
-        "projectPath": "C:\\examenCruiz\\examenCruiz\\Netcore.Application\\Netcore.Application.csproj",
+        "projectPath": "C:\\examenCruiz\\PRAYAGA\\PRAYAGA\\Netcore.Application\\Netcore.Application.csproj",
         "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
-        "outputPath": "C:\\examenCruiz\\examenCruiz\\Netcore.Application\\obj\\",
+        "outputPath": "C:\\examenCruiz\\PRAYAGA\\PRAYAGA\\Netcore.Application\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

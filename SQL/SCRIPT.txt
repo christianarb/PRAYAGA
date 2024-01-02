@@ -1,6 +1,6 @@
 USE [prueba-tecnica]
 GO
-/****** Object:  Table [dbo].[Carrera]    Script Date: 2/01/2024 17:32:53 ******/
+/****** Object:  Table [dbo].[Carrera]    Script Date: 2/01/2024 17:54:01 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -19,7 +19,7 @@ CREATE TABLE [dbo].[Carrera](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Facultad]    Script Date: 2/01/2024 17:32:53 ******/
+/****** Object:  Table [dbo].[Facultad]    Script Date: 2/01/2024 17:54:01 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -37,31 +37,12 @@ CREATE TABLE [dbo].[Facultad](
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
-/****** Object:  Table [dbo].[Users]    Script Date: 2/01/2024 17:32:53 ******/
-SET ANSI_NULLS ON
-GO
-SET QUOTED_IDENTIFIER ON
-GO
-CREATE TABLE [dbo].[Users](
-	[Id] [int] IDENTITY(1,1) NOT NULL,
-	[Title] [nvarchar](max) NULL,
-	[FirstName] [nvarchar](max) NULL,
-	[LastName] [nvarchar](max) NULL,
-	[Email] [nvarchar](max) NULL,
-	[Role] [int] NULL,
-	[PasswordHash] [nvarchar](max) NULL,
-PRIMARY KEY CLUSTERED 
-(
-	[Id] ASC
-)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
-) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
-GO
 ALTER TABLE [dbo].[Carrera]  WITH CHECK ADD  CONSTRAINT [FK_carrera_facultad] FOREIGN KEY([facultad])
 REFERENCES [dbo].[Facultad] ([id])
 GO
 ALTER TABLE [dbo].[Carrera] CHECK CONSTRAINT [FK_carrera_facultad]
 GO
-/****** Object:  StoredProcedure [dbo].[SP_CarreraCreated]    Script Date: 2/01/2024 17:32:53 ******/
+/****** Object:  StoredProcedure [dbo].[SP_CarreraCreated]    Script Date: 2/01/2024 17:54:01 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -73,14 +54,14 @@ CREATE PROCEDURE [dbo].[SP_CarreraCreated]
 @facultad as int,
 @id as int out
 AS
-  INSERT INTO Carrera (nombre_carrera , codigo_carrera , facultad,estado,creado_tmstp)
-  VALUES (@nombre_carrera , @codigo_carrera,@facultad,'A',CURRENT_TIMESTAMP)
-
-
-
-  SET @id = SCOPE_IDENTITY() 
+  INSERT INTO 
+	Carrera (nombre_carrera , codigo_carrera , facultad,estado,creado_tmstp)
+  VALUES 
+	(@nombre_carrera , @codigo_carrera,@facultad,'A',CURRENT_TIMESTAMP)
+  SET
+	@id = SCOPE_IDENTITY() 
 GO
-/****** Object:  StoredProcedure [dbo].[SP_CarreraDelete]    Script Date: 2/01/2024 17:32:53 ******/
+/****** Object:  StoredProcedure [dbo].[SP_CarreraDelete]    Script Date: 2/01/2024 17:54:01 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -89,16 +70,16 @@ GO
 CREATE PROCEDURE [dbo].[SP_CarreraDelete]
 @id as int
 AS
-  UPDATE 
-	Carrera 
- SET
-	 estado = 'I'
-WHERE
-	id = @id
+	UPDATE 
+		Carrera 
+	SET
+		 estado = 'I'
+	WHERE
+		id = @id
 
   
 GO
-/****** Object:  StoredProcedure [dbo].[SP_CarreraGetAll]    Script Date: 2/01/2024 17:32:53 ******/
+/****** Object:  StoredProcedure [dbo].[SP_CarreraGetAll]    Script Date: 2/01/2024 17:54:01 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -106,17 +87,22 @@ GO
 
 CREATE  PROCEDURE [dbo].[SP_CarreraGetAll]
 AS
-SELECT id,
-facultad,
-nombre_carrera,
-codigo_carrera,
-creado_tmstp,
-actualizado_mstp,
-estado
-FROM Carrera where estado = 'A'
-order by id desc
+SELECT 
+	id,
+	facultad,
+	nombre_carrera,
+	codigo_carrera,
+	creado_tmstp,
+	actualizado_mstp,
+	estado
+FROM 
+	Carrera 
+where 
+	estado = 'A'
+order by 
+	id desc
 GO
-/****** Object:  StoredProcedure [dbo].[SP_CarreraGetAllDeleted]    Script Date: 2/01/2024 17:32:53 ******/
+/****** Object:  StoredProcedure [dbo].[SP_CarreraGetAllDeleted]    Script Date: 2/01/2024 17:54:01 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -125,16 +111,19 @@ GO
 CREATE PROCEDURE [dbo].[SP_CarreraGetAllDeleted]
 AS
 SELECT 
-id,
-facultad,
-nombre_carrera,
-codigo_carrera,
-creado_tmstp,
-actualizado_mstp,
-estado
-FROM Carrera where estado = 'I'
+	id,
+	facultad,
+	nombre_carrera,
+	codigo_carrera,
+	creado_tmstp,
+	actualizado_mstp,
+	estado
+FROM 
+	Carrera 
+where 
+	estado = 'I'
 GO
-/****** Object:  StoredProcedure [dbo].[SP_CarreraGetById]    Script Date: 2/01/2024 17:32:53 ******/
+/****** Object:  StoredProcedure [dbo].[SP_CarreraGetById]    Script Date: 2/01/2024 17:54:01 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -143,17 +132,20 @@ GO
 CREATE PROCEDURE [dbo].[SP_CarreraGetById]
 @id as int
 AS
-  SELECT id,
-facultad,
-nombre_carrera,
-codigo_carrera,
-creado_tmstp,
-actualizado_mstp,
-estado
- FROM Carrera  
-  WHERE Id = @id and estado = 'A'
+  SELECT 
+	id,
+	facultad,
+	nombre_carrera,
+	codigo_carrera,
+	creado_tmstp,
+	actualizado_mstp,
+	estado
+ FROM 
+	Carrera  
+  WHERE 
+	Id = @id and estado = 'A'
 GO
-/****** Object:  StoredProcedure [dbo].[SP_CarreraUpdate]    Script Date: 2/01/2024 17:32:53 ******/
+/****** Object:  StoredProcedure [dbo].[SP_CarreraUpdate]    Script Date: 2/01/2024 17:54:01 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -177,7 +169,7 @@ WHERE
 
   
 GO
-/****** Object:  StoredProcedure [dbo].[SP_FacultadCreated]    Script Date: 2/01/2024 17:32:53 ******/
+/****** Object:  StoredProcedure [dbo].[SP_FacultadCreated]    Script Date: 2/01/2024 17:54:01 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -187,12 +179,13 @@ CREATE PROCEDURE [dbo].[SP_FacultadCreated]
 @codigo_facultad as nvarchar(16),
 @id as int out
 AS
-  INSERT INTO Facultad (nombre_facultad, codigo_facultad,estado,creado_tmstp)
-  VALUES (@nombre_facultad, @codigo_facultad,'A',CURRENT_TIMESTAMP)
-
-    SET @id = SCOPE_IDENTITY() 
+  INSERT INTO Facultad 
+	(nombre_facultad, codigo_facultad,estado,creado_tmstp)
+  VALUES 
+	(@nombre_facultad, @codigo_facultad,'A',CURRENT_TIMESTAMP)
+  SET @id = SCOPE_IDENTITY() 
 GO
-/****** Object:  StoredProcedure [dbo].[SP_FacultadDelete]    Script Date: 2/01/2024 17:32:53 ******/
+/****** Object:  StoredProcedure [dbo].[SP_FacultadDelete]    Script Date: 2/01/2024 17:54:01 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -277,7 +270,7 @@ SET facultad = @id_facultad_destination
 WHERE id = @id_facultad_source
 */
 GO
-/****** Object:  StoredProcedure [dbo].[SP_FacultadGetAll]    Script Date: 2/01/2024 17:32:53 ******/
+/****** Object:  StoredProcedure [dbo].[SP_FacultadGetAll]    Script Date: 2/01/2024 17:54:01 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -285,26 +278,38 @@ GO
 CREATE PROCEDURE [dbo].[SP_FacultadGetAll]
 AS
 SELECT 
-id,
-nombre_facultad,
-codigo_facultad,
-creado_tmstp,
-actualizado_tmstp,
-estado
-
-FROM Facultad where estado = 'A'
-order by id desc
+	id,
+	nombre_facultad,
+	codigo_facultad,
+	creado_tmstp,
+	actualizado_tmstp,
+	estado
+FROM 
+	Facultad 
+where 
+	estado = 'A'
+order by
+	id desc
 GO
-/****** Object:  StoredProcedure [dbo].[SP_FacultadGetAllDeleted]    Script Date: 2/01/2024 17:32:53 ******/
+/****** Object:  StoredProcedure [dbo].[SP_FacultadGetAllDeleted]    Script Date: 2/01/2024 17:54:01 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
 CREATE PROCEDURE [dbo].[SP_FacultadGetAllDeleted]
 AS
-SELECT * FROM Facultad where estado = 'I'
+SELECT id,
+	nombre_facultad,
+	codigo_facultad,
+	creado_tmstp,
+	actualizado_tmstp,
+	estado
+FROM 
+	Facultad 
+where 
+	estado = 'I'
 GO
-/****** Object:  StoredProcedure [dbo].[SP_FacultadGetById]    Script Date: 2/01/2024 17:32:53 ******/
+/****** Object:  StoredProcedure [dbo].[SP_FacultadGetById]    Script Date: 2/01/2024 17:54:01 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -312,10 +317,19 @@ GO
 CREATE PROCEDURE [dbo].[SP_FacultadGetById]
 @id as int
 AS
-  SELECT * FROM Facultad  
-  WHERE Id = @id and estado = 'A'
+  SELECT 
+	id,
+	nombre_facultad,
+	codigo_facultad,
+	creado_tmstp,
+	actualizado_tmstp,
+	estado 
+  FROM 
+	Facultad  
+  WHERE 
+	Id = @id and estado = 'A'
 GO
-/****** Object:  StoredProcedure [dbo].[SP_FacultadUpdate]    Script Date: 2/01/2024 17:32:53 ******/
+/****** Object:  StoredProcedure [dbo].[SP_FacultadUpdate]    Script Date: 2/01/2024 17:54:01 ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON

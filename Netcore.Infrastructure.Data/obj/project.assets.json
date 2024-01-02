@@ -159,11 +159,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\examenCruiz\\examenCruiz\\Netcore.Infrastructure.Data\\Netcore.Infrastructure.Data.csproj",
+      "projectUniqueName": "C:\\examenCruiz\\PRAYAGA\\PRAYAGA\\Netcore.Infrastructure.Data\\Netcore.Infrastructure.Data.csproj",
       "projectName": "Netcore.Infrastructure.Data",
-      "projectPath": "C:\\examenCruiz\\examenCruiz\\Netcore.Infrastructure.Data\\Netcore.Infrastructure.Data.csproj",
+      "projectPath": "C:\\examenCruiz\\PRAYAGA\\PRAYAGA\\Netcore.Infrastructure.Data\\Netcore.Infrastructure.Data.csproj",
       "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
-      "outputPath": "C:\\examenCruiz\\examenCruiz\\Netcore.Infrastructure.Data\\obj\\",
+      "outputPath": "C:\\examenCruiz\\PRAYAGA\\PRAYAGA\\Netcore.Infrastructure.Data\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
