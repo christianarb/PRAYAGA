@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "ahSPcUKAKPYSqq4WqqQzMjXwAa4Sv9cMwGO4Jr4Pr6pa2UWhrfCeRH1WJFpqfMmrlelarzEt2Q1j8FxYQH2v0Q==",
+  "success": true,
+  "projectFilePath": "C:\\examenCruiz\\examenCruiz\\Netcore.Infrastructure.Data\\Netcore.Infrastructure.Data.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\DELL\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
+    "C:\\Users\\DELL\\.nuget\\packages\\dapper\\2.0.123\\dapper.2.0.123.nupkg.sha512",
+    "C:\\Users\\DELL\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512"
+  ],
+  "logs": []
+}
